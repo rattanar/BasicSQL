@@ -232,3 +232,41 @@ mysql> SELECT * FROM persons;
 2 rows in set (0.00 sec)
 ```
 
+
+
+----------------------------------------------
+
+# MySQL Data Types
+
+| Data Types    | INFO          |
+| ------------- |:-------------:|
+| CHAR          | String (0-255) |
+| VARCHAR       | String (0-255) |
+| TINYTEXT      | String (0-255) |
+| TEXT          | String (0-65535) |
+| BLOB          | String (0-65535) |
+| MEDIUMTEXT    | String (0-16777215) |
+| MEDIUMBLOB    | String (0-16777215) |
+| LONGTEXT      | String (0-4294967295) |
+| LONGBLOB      | String (0-4294967295) |
+| TINYINT x     | Integer (1 byte: -128 to 127) |
+| SMALLINT x    | Integer (2 bytes: -32768 to 32767) |
+| MEDIUMINT x   | Integer (3 bytes: -8388608 to 8388607) |
+| INT x         | Integer (4 bytes: -2147483648 to 2147483647) |
+| BIGINT x      | Integer (8 bytes: -9223372036854775808 to 9223372036854775807) |
+| FLOAT         | Decimal (precise to 23 digits) |
+| DOUBLE        | Decimal (24 to 53 digits) |
+| DECIMAL       | "DOUBLE" stored as string |
+| DATE          | YYYY-MM-DD |
+| DATETIME      | YYYY-MM-DD HH:MM:SS |
+| TIMESTAMP     | YYYYMMDDHHMMSS |
+| TIME          | HH:MM:SS |
+| ENUM          | [One of preset options](https://dev.mysql.com/doc/refman/5.7/en/enum.html) |
+| SET           | [Selection of preset options](https://dev.mysql.com/doc/refman/5.7/en/set.html) |
+
+Note  
+```
+Integers that marked x as "UNSIGNED" have the same range of values but start from 0,
+i.e., "TINYINT UNSIGNED" can have any value from 0 to 255)
+```
+

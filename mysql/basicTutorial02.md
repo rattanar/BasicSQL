@@ -8,10 +8,10 @@ SQL: Structured Query Language
 ## **CREATE TABLE**
 
 * สร้างตาราง(table) ชื่อ "Students" โดยโครงสร้างประกอบไปด้วย 
-* คอลั่ม "StudentID" type int (ค่านี้สามารถใช้เป็น primary key(unique) ได้)
-* คอลั่ม "StudentName" type varchar(string) max length 255
-* คอลั่ม "University" type varchar(string) max length 255
-* คอลั่ม "City" type varchar(string) max length 255
+* Column "StudentID" type int (ค่านี้สามารถใช้เป็น primary key(unique) ได้)
+* Column "StudentName" type varchar(string) max length 255
+* Column "University" type varchar(string) max length 255
+* Column "City" type varchar(string) max length 255
 
 ````
 
@@ -86,7 +86,7 @@ Operators
 
 `>`,`<`, `>=`, `<=`: มากกว่า,น้อยกว่า,มากว่าหรือเท่ากับ,น้อยกว่าหรือเท่ากับ
 
-`BETWEEN`: มีค่าอยู่ระหว่าง
+`BETWEEN...AND...`: ใช้สำหรับกำหนดเงื่อนไขในการค้นหาค่าที่อยู่ระหว่างค่าๆหนึ่ง กับค่าๆหนึ่ง
 
 `IN`: ใช้ตรวจสอบและดึงค่าหลายๆรูปแบบสำหรับคอลั่มใดๆ
 
@@ -147,21 +147,22 @@ http://www.w3schools.com/sql/sql_wildcards.asp
 
 **_Aggregate Functions_** คือฟังก์ชันที่จะคืนค่าเป็นค่าๆเดียวซึ่งได้มาจากการป้อนด้วยอินพุตแบบคอลั่ม ตัวอย่างเช่น
 (return a single value, calculated from values in a column.)
-* AVG() - Returns the average value
-* COUNT() - Returns the number of rows
-* FIRST() - Returns the first value
-* MAX() - Returns the largest value
-* MIN() - Returns the smallest value
-* SUM() - Returns the sum
-* ---LAST() - Returns the last value---
+* AVG() - ใช้สำหรับหาค่าเฉลี่ยในฐานข้อมูลจากฟิลด์ที่เป็นตัวเลข
+* COUNT() - ใช้สำหรับนับจำนวนแถวในตาราง
+* FIRST() - ใช้สำหรับส่งกลับค่าแรกของคอลัมน์ที่เลือก
+* MAX() - ใช้สำหรับส่งกลับค่าที่มีค่ามากสุด
+* MIN() - ใช้สำหรับส่งกลับค่าที่มีค่าน้อยสุด
+* SUM() - ใช้สำหรับบอกผลรวม
+* LAST() - ใช้สำหรับคืนค่าแถวท้ายสุด
 
 นับจำนวนคอลั่มทั้งหมดที่ชื่อเมืองอยู่ในรูปแบบ "Lon%"
 ````
 SELECT COUNT(*) FROM Customers WHERE City LIKE "Lon%";
 ````
-สามารถตั้งชื่อตัวแปรมารับค่าได้ด้วย "AS" ในที่นี้ตั้งชื่อว่า countResult 
+สามารถตั้งชื่อตัวแปรมารับค่าได้ด้วย "AS" ในที่นี้ตั้งชื่อว่า countResult หรือสามารถตั้งชื่อไปเลยว่า countResult เลยก็ได้เช่นกัน ค่าที่แสดงจะมีค่าเหมือนกัน
 ````
 SELECT COUNT(*) AS countResult FROM Customers WHERE City LIKE "Lon%";
+SELECT COUNT(*) countResult FROM Customers WHERE City LIKE "Lon%";
 ````
 
 หาผลรวม/ค่าเฉลี่ย/ค่าที่สูงสุด/ต่ำสุด ของ CustomerID ของแถวข้อมูลทั้งหมดที่ชื่อเมืองอยู่ในรูปแบบ "Lon%"
@@ -175,13 +176,13 @@ SELECT MIN(CustomerID) FROM Customers WHERE City LIKE "Lon%";
 
 **_Scalar functions_** คือฟังก์ชันที่จะคืนค่าเป็นค่าๆเดียวซึ่งได้มาจากการป้อนอินพุตค่าๆหนึ่งเข้าไป ตัวอย่างเช่น
 (return a single value, based on the input value.)
-* UCASE() - Converts a field to upper case
-* LCASE() - Converts a field to lower case
-* MID() - Extract characters from a text field
-* LEN() - Returns the length of a text field
-* ROUND() - Rounds a numeric field to the number of decimals specified
-* NOW() - Returns the current system date and time
-* FORMAT() - Formats how a field is to be displayed
+* UCASE() or UPPER() - ใช้แปลงตัวอักษรเป็นตัวพิมพ์ใหญ่ 
+* LOWER() or LCASE() - ใช้แปลงตัวอักษรเป็นตัวพิมพ์เล็ก
+* MID() - ใช้สำหรับตัดคำในฟิลด์ออกมาเท่าที่ต้องการ
+* LEN() - ใช้สำหรับดูความยาวของข้อความ
+* ROUND() - ใช้สำหรับปัดเศษทศนิยมของตัวเลข
+* NOW() - ใช้สำหรับแสดงวันที่และเวลาของระบบปัจจุบัน
+* FORMAT() - ใช้ในการจัดรูปแบบวิธีการที่เขตข้อมูลเป็นที่จะแสดง
 
 *****************************
 
